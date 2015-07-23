@@ -2,7 +2,7 @@ FROM rails
 
 WORKDIR /usr/src/app
 
-ENV DISCOURSE_VERSION 1.3.1
+ENV DISCOURSE_VERSION 1.4.0.beta3
 
 RUN curl -L https://github.com/discourse/discourse/archive/v${DISCOURSE_VERSION}.tar.gz \
   | tar -xz -C /usr/src/app --strip-components 1 \
