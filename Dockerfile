@@ -2,12 +2,12 @@ FROM rails
 
 WORKDIR /usr/src/app
 
-ENV DISCOURSE_VERSION 1.4.2
-ENV RAILS42 1
+ENV DISCOURSE_VERSION 1.5.0
+LABEL discourse=$DISCOURSE_VERSION
 
 RUN curl -L https://github.com/discourse/discourse/archive/v${DISCOURSE_VERSION}.tar.gz \
   | tar -xz -C /usr/src/app --strip-components 1 \
-  && rm Gemfile.lock && bundle install  --without test --without development
+  && bundle install  --without test --without development
 
 RUN apt-get update && apt-get install -y --no-install-recommends imagemagick libxml2 \
   && rm -rf /var/lib/apt/lists/*
